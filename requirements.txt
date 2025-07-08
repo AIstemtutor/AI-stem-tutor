@@ -6,3 +6,4 @@ PyMuPDF
 pyttsx3
 streamlit-lottie
 pytesseract
+speechrecognition
