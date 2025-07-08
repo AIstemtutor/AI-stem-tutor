@@ -2,7 +2,7 @@ streamlit
 requests
 python-dotenv
 openai
-requests
+PyMuPDF
 pyttsx3
 streamlit-lottie
-
+pytesseract
