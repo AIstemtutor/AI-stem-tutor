@@ -78,7 +78,7 @@ st.markdown("""
 
 
 
-# ======================= 🌙 Dark Mode =======================
+# ======================= 🌙 Dark Mode  =======================
 dark_mode = st.sidebar.toggle("🌙 Dark Mode", value=False)
 
 if dark_mode:
