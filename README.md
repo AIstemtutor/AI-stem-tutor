@@ -51,10 +51,22 @@ AI STEM Tutor is an interactive, AI-powered educational assistant that helps stu
 | `Lottie`        | Add animated robot for engagement  |
 
 ---
+🧠 Future Scope
+Mobile app support
 
-## 🚀 Getting Started
+Multi-language question handling
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/ai-stem-tutor.git
-cd ai-stem-tutor
+Peer-to-peer Q&A forums
+
+Performance tracking and analytics
+
+Leaderboard and gamified elements
+
+## 👥 Contributors
+
+Thanks to the following people for their valuable contributions:
+
+ Stuti Shukla 
+ Aditi Pandey
+ Srishti Dangi
+ Tanishka
