@@ -67,6 +67,9 @@ Leaderboard and gamified elements
 Thanks to the following people for their valuable contributions:
 
  Stuti Shukla 
+ 
  Aditi Pandey
+ 
  Srishti Dangi
+ 
  Tanishka
