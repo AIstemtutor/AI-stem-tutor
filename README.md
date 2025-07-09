@@ -2,7 +2,7 @@
 
 AI STEM Tutor is an interactive, AI-powered educational assistant that helps students learn STEM subjects through text, voice, image, and PDF-based inputs. Built with Streamlit and powered by Generative AI, this app allows students to ask questions, extract content from notes, solve handwritten queries, take quizzes, and bookmark useful answers.
 
-![AI STEM Tutor Banner](https://your-image-link-if-any.png)
+
 
 ---
 
