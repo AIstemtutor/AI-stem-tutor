@@ -72,4 +72,4 @@ Thanks to the following people for their valuable contributions:
  
  Srishti Dangi
  
- Tanishka
+ Tanishka Singh
