@@ -10,7 +10,7 @@ AI STEM Tutor is an interactive, AI-powered educational assistant that helps stu
 
 - 🧠 **Ask Doubts in Any STEM Subject**
   - Ask questions by typing or speaking
-  - Select subject (Physics, Chemistry, Math, Bio, CS)
+  - Select subject (Physics, Chemistry, Math, Bio, Computer Science)
   - AI gives clear, student-friendly answers
 
 - 📄 **PDF Notes Support**
