@@ -48,7 +48,7 @@ AI STEM Tutor is an interactive, AI-powered educational assistant that helps stu
 | `PyMuPDF`       | Read and parse PDF documents       |
 | `SpeechRecognition` | Convert speech to text        |
 | `Python`        | Core programming language          |
-| `Lottie`        | Add animated robot for engagement  |
+ 
 
 ---
 🧠 Future Scope
