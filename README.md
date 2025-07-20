@@ -46,7 +46,7 @@ AI STEM Tutor is an interactive, AI-powered educational assistant that helps stu
 | `OpenAI/Groq`   | Generative AI for answers & quizzes|
 | `Tesseract OCR` | Extract text from images           |
 | `PyMuPDF`       | Read and parse PDF documents       |
-| `SpeechRecognition` | Convert speech to text        |
+| `SpeechRecognition` | Convert speech to text         |
 | `Python`        | Core programming language          |
  
 
