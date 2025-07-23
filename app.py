@@ -12,8 +12,6 @@ import pytesseract
 import json
 import os
 import numpy as np
-import base64
-import io
 
 def load_lottie_url(url: str):
     try:
@@ -250,53 +248,40 @@ def recognize_speech():
         return "Sorry, I couldn't understand that."
 
 # ======================= 📷 IMAGE DOUBT =======================
-HUGGINGFACE_API_TOKEN = "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"  # Replace with your token
+if section == "📷 Image Doubt":
+    st.title("📷 Click/Upload Image for Doubt")
 
-def extract_text_from_image(image_bytes):
-    API_URL = "https://api-inference.huggingface.co/models/microsoft/trocr-base-handwritten"
-    headers = {
-        "Authorization": f"Bearer {HUGGINGFACE_API_TOKEN}"
-    }
-    response = requests.post(API_URL, headers=headers, data=image_bytes)
-    if response.status_code == 200:
-        return response.json()[0]["generated_text"]
-    else:
-        return "❌ Error: Unable to extract text."
+    uploaded_image = st.file_uploader("Upload an image (screenshot, handwriting, etc.)", type=["png", "jpg", "jpeg"])
 
-def ask_tutor(question):
-    prompt = f"You are a friendly STEM tutor. Explain this clearly:\n\n{question}"
-    headers = {
-        "Authorization": f"Bearer your_groq_api_key",  # Replace with your Groq key
-        "Content-Type": "application/json"
-    }
-    data = {
-        "model": "llama3-70b-8192",
-        "messages": [{"role": "user", "content": prompt}]
-    }
-    response = requests.post("https://api.groq.com/openai/v1/chat/completions",
-                             headers=headers, json=data)
-    if response.status_code == 200:
-        return response.json()["choices"][0]["message"]["content"]
-    else:
-        return "❌ Error: Tutor could not respond."
+    if uploaded_image is not None:
+        st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+        image = Image.open(uploaded_image)
+        extracted_text = pytesseract.image_to_string(image)
 
-# Streamlit UI
-st.title("📷 Image-Based Doubt Solver (No cv2, pytesseract)")
+        st.markdown("#### ✨ Extracted Question:")
+        st.code(extracted_text.strip())
 
-uploaded_image = st.file_uploader("Upload handwritten or printed image", type=["png", "jpg", "jpeg"])
-if uploaded_image:
-    st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
-    image_bytes = uploaded_image.read()
-    with st.spinner("🔍 Extracting text..."):
-        question = extract_text_from_image(image_bytes)
-    st.markdown("#### ✨ Extracted Question:")
-    st.code(question.strip())
+        if st.button("Ask Tutor from Image"):
+            with st.spinner("Thinking..."):
+                prompt = f"You are a friendly STEM tutor. Explain this question clearly:\n\n{extracted_text}"
+                headers = {
+                    "Authorization": f"Bearer {GROQ_API_KEY}",
+                    "Content-Type": "application/json"
+                }
+                data = {
+                    "model": "llama3-70b-8192",
+                    "messages": [{"role": "user", "content": prompt}]
+                }
+                try:
+                    res = requests.post("https://api.groq.com/openai/v1/chat/completions",
+                                        headers=headers, json=data, timeout=15)
+                    res.raise_for_status()
+                    answer = res.json()["choices"][0]["message"]["content"]
+                    st.markdown("#### 🧾 Tutor’s Answer:")
+                    st.markdown(f"<div class='response-box'>{answer}</div>", unsafe_allow_html=True)
+                except Exception as e:
+                    st.error(f"⚠ Error: {e}")
 
-    if st.button("Ask Tutor"):
-        with st.spinner("🤔 Thinking..."):
-            answer = ask_tutor(question)
-        st.markdown("#### 🧾 Tutor's Answer:")
-        st.markdown(answer)
 # ======================= 🧠 ASK TUTOR =======================
 if section == "🏠 Ask Tutor":
     st.title("🧠 Ask Your STEM Tutor")
