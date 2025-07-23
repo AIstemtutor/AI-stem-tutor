@@ -8,5 +8,4 @@ streamlit-lottie
 pytesseract
 speechrecognition
 Pillow
-opencv-python
 numpy
