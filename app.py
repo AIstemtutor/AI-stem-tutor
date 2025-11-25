@@ -68,7 +68,6 @@ with open(BOOKMARK_FILE, "w", encoding="utf-8") as f:
     json.dump(st.session_state["bookmarked_questions"], f, ensure_ascii=False, indent=2)
 
 # Configure Tesseract path
-/usr/bin/tesseract
 
 # ======================= STREAMLIT CONFIG =======================
 st.set_page_config(page_title="AI STEM Tutor", page_icon="🧠", layout="wide")
